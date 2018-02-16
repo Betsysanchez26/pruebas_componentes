@@ -9,34 +9,28 @@ import { AlertController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public alertCtrl: AlertController) { }
+  constructor(public alerCtrl: AlertController) { }
 
-  doPrompt() {
-    let prompt = this.alertCtrl.create({
-      title: 'Login',
-      message: "Enter a name for this new album you're so keen on adding",
-      inputs: [
-        {
-          name: 'title',
-          placeholder: 'Title'
-        },
-      ],
+  doConfirm() {
+    let confirm = this.alerCtrl.create({
+      title: 'Use this lightsaber?',
+      message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
       buttons: [
         {
-          text: 'Cancel',
-          handler: data => {
-            console.log('Cancel clicked');
+          text: 'Disagree',
+          handler: () => {
+            console.log('Disagree clicked');
           }
         },
         {
-          text: 'Save',
-          handler: data => {
-            console.log('Saved clicked');
+          text: 'Agree',
+          handler: () => {
+            console.log('Agree clicked');
           }
         }
       ]
     });
-    prompt.present();
+    confirm.present()
   }
 
 }
