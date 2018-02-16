@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-
+import { NavController } from 'ionic-angular';
+import { Platform, ActionSheetController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 
-
 @Component({
+  selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class BasicPage {
-
+export class HomePage {
+ 
   constructor(public alerCtrl: AlertController) { }
 
   doAlert() {
