@@ -8,16 +8,35 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
- 
-  constructor(public alerCtrl: AlertController) { }
 
-  doAlert() {
-    let alert = this.alerCtrl.create({
-      title: 'New Friend!',
-      message: 'Your friend, Obi wan Kenobi, just approved your friend request!',
-      buttons: ['Ok']
+  constructor(public alertCtrl: AlertController) { }
+
+  doPrompt() {
+    let prompt = this.alertCtrl.create({
+      title: 'Login',
+      message: "Enter a name for this new album you're so keen on adding",
+      inputs: [
+        {
+          name: 'title',
+          placeholder: 'Title'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Saved clicked');
+          }
+        }
+      ]
     });
-    alert.present()
+    prompt.present();
   }
 
 }
